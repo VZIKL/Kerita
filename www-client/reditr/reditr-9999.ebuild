@@ -7,7 +7,7 @@ EAPI=5
 DESCRIPTION="The Client for Reddit"
 HOMEPAGE="http://reditr.com/"
 SRC_URI="amd64? (http://reditr.com/downloads/linux/reditr_amd64.deb)
-		x86? (http://reditr.com/downloads/linux/reditr_i386.deb)
+x86? (http://reditr.com/downloads/linux/reditr_i386.deb)
 "
 
 LICENSE="Reditr"
@@ -25,5 +25,5 @@ src_compile(){
 }
 
 src_install(){
-	insinto /opt/reditr
+	insinto /
 }

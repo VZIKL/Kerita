@@ -18,7 +18,7 @@ IUSE=""
 
 DEPEND=""
 RDEPEND="${DEPEND}
-		dev-lisp/sbcl"
+dev-lisp/sbcl"
 
 src_compile() {
 	emake || die "emake failed"

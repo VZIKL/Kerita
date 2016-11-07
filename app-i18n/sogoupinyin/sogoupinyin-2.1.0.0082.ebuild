@@ -7,7 +7,7 @@ EAPI=5
 DESCRIPTION="Sogou Pinyin input method"
 HOMEPAGE="http://pinyin.sogou.com/linux/"
 SRC_URI="amd64? ( http://pinyin.sogou.com/linux/download.php?f=linux&bit=64 -> ${PN}_${PV}_amd64.deb )
- x86? ( http://pinyin.sogou.com/linux/download.php?f=linux&bit=32 -> ${PN}_${PV}_i386.deb )"
+x86? ( http://pinyin.sogou.com/linux/download.php?f=linux&bit=32 -> ${PN}_${PV}_i386.deb )"
 
 
 LICENSE="Fcitx-Sogou"
@@ -31,30 +31,30 @@ DEPEND="${RDEPEND}"
 S=${WORKDIR}
 
 src_compile(){
-  tar xf ${WORKDIR}/data.tar.xz
-  rm control.tar.gz  data.tar.xz  debian-binary
-  rm -rf usr/share/keyrings
-  rm -rf etc/X11
+	tar xf ${WORKDIR}/data.tar.xz
+	rm control.tar.gz  data.tar.xz  debian-binary
+	rm -rf usr/share/keyrings
+	rm -rf etc/X11
 }
 
 src_install(){
-  dodir /usr/lib/fcitx
-  insinto /usr/lib/fcitx
-  insopts -m0755
-  doins ${S}/usr/lib/*-linux-gnu/fcitx/*
-  dodir /usr/share/mime-info
-  insinto /usr/share/mime-info
-  install -D ${S}/usr/lib/mime/packages/fcitx-ui-sogou-qimpanel fcitx-ui-sogou-qimpanel.keys
-  dodir /usr/share
-  insinto /usr/share
-  doins -r ${S}/usr/share/*
+	dodir /usr/lib/fcitx
+	insinto /usr/lib/fcitx
+	insopts -m0755
+	doins ${S}/usr/lib/*-linux-gnu/fcitx/*
+	dodir /usr/share/mime-info
+	insinto /usr/share/mime-info
+	install -D ${S}/usr/lib/mime/packages/fcitx-ui-sogou-qimpanel fcitx-ui-sogou-qimpanel.keys
+	dodir /usr/share
+	insinto /usr/share
+	doins -r ${S}/usr/share/*
 
-  dodir /usr/bin
-  insinto /usr/bin
-  doins  ${S}/usr/bin/*
-  dodir /etc/xdg/autostart
-  insinto /etc/xdg/autostart
-  doins ${S}/etc/xdg/autostart/*
+	dodir /usr/bin
+	insinto /usr/bin
+	doins  ${S}/usr/bin/*
+	dodir /etc/xdg/autostart
+	insinto /etc/xdg/autostart
+	doins ${S}/etc/xdg/autostart/*
 
 }
 

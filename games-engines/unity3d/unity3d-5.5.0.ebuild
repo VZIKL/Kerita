@@ -16,23 +16,23 @@ KEYWORDS="-* ~amd64 amd64"
 RESTRICT="mirror"
 
 RDEPEND="media-video/ffmpeg
-		net-libs/nodejs
-		virtual/jdk 
-		virtual/jre
-		dev-util/android-studio
-		app-arch/gzip
-		dev-util/desktop-file-utils
-		x11-misc/xdg-utils
-		sys-devel/gcc[multilib]
-		virtual/opengl
-		virtual/glu
-		dev-libs/nss
-		media-libs/libpng
-		x11-libs/libXtst
-		dev-libs/libpqxx
-		dev-util/monodevelop
-		net-libs/nodejs[npm]
-		sys-apps/fakeroot"
+net-libs/nodejs
+virtual/jdk
+virtual/jre
+dev-util/android-studio
+app-arch/gzip
+dev-util/desktop-file-utils
+x11-misc/xdg-utils
+sys-devel/gcc[multilib]
+virtual/opengl
+virtual/glu
+dev-libs/nss
+media-libs/libpng
+x11-libs/libXtst
+dev-libs/libpqxx
+dev-util/monodevelop
+net-libs/nodejs[npm]
+sys-apps/fakeroot"
 S="${WORKDIR}/unity-enditor-${PV_F}"
 FILES="${S}/Files"
 
@@ -65,7 +65,7 @@ src_install() {
 	doins "${S}/unity-editor-icon.png"
 	insinto /usr/share/icons/hicolor/48x48/apps
 	doins "${FILES}/unity-monodevelop.png"
-	
+
 	# Install launch binaries
 	insopts "-Dm755"
 	insinto /usr/bin
