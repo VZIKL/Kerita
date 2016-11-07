@@ -9,7 +9,7 @@ EAPI=4
 
 DESCRIPTION="Create executables with SBCL"
 HOMEPAGE="http://www.xach.com/lisp/buildapp/"
-SRC_URI="http://www.xach.com/lisp/${PN}.tgz -> ${P}.tgz"
+SRC_URI="https://codeload.github.com/xach/buildapp/tar.gz/release-${PV} -> ${P}.tar.gz"
 
 LICENSE="BSD"
 SLOT="0"
