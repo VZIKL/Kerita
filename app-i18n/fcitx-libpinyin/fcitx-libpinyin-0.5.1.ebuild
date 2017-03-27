@@ -15,7 +15,7 @@ KEYWORDS="~amd64 ~x86"
 IUSE="dictmanager"
 
 RDEPEND=">=app-i18n/fcitx-4.2.8[dbus]
-	app-i18n/libpinyin
+	>=app-i18n/libpinyin-1.9.91
 	dev-libs/glib:2
 	sys-apps/dbus
 	virtual/libintl
