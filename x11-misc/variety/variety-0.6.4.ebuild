@@ -34,7 +34,8 @@ RDEPEND="${DEPEND}
 	net-libs/webkit-gtk:3[introspection]
 	gnome-extra/yelp
 	media-gfx/imagemagick
-	media-libs/gexiv2[${PYTHON_USEDEP}]
+	media-libs/gexiv2[python,introspection]
+	dev-libs/libappindicator:3[python,introspection]
 	dev-python/lxml[${PYTHON_USEDEP}]"
 
 S="${WORKDIR}/${PN}-${PV}"
