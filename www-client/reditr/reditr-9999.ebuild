@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=6
+inherit unpacker
 
 DESCRIPTION="The Client for Reddit"
 HOMEPAGE="http://reditr.com/"
@@ -18,11 +19,20 @@ RESTRICT="mirror"
 
 S=${WORKDIR}
 
-src_compile(){
-	tar xf ${WORKDIR}/data.tar.gz
-	rm control.tar.gz debian-binary data.tar.gz
-}
-
 src_install(){
 	insinto /
+	doins -r ${S}/opt
+
+	dodir /opt
+	exeinto /opt
+	fperms 775 /opt/reditr/reditr_app
+	dosym /opt/reditr/reditr_app /usr/bin/reditr
+
+	doins -r ${S}/usr
+
+	dodir /usr/share
+	exeinto /usr/share
+
+	dodir /usr/lib
+	exeinto /usr/lib
 }
