@@ -29,16 +29,16 @@ virtual/glu
 dev-libs/nss
 media-libs/libpng
 x11-libs/libXtst
-dev-libs/libpqxx
 dev-util/monodevelop
 net-libs/nodejs[npm]
 sys-apps/fakeroot"
-S="${WORKDIR}/unity-enditor-${PV_F}"
+# dev-libs/libpqxx
+S="${WORKDIR}/unity-enditor-${PV_V}"
 FILES="${S}/Files"
 
 
 src_unpack() {
-	yes | fakeroot sh "${DISTDIR}/${P}+${BUILDTAG}.sh" > /dev/null || die "Failed unpacking archive!"
+	yes | fakeroot sh "${DISTDIR}/${P}.sh" > /dev/null || die "Failed unpacking archive!"
 }
 
 src_prepare() {
