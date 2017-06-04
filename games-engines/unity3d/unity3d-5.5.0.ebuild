@@ -29,60 +29,32 @@ virtual/glu
 dev-libs/nss
 media-libs/libpng
 x11-libs/libXtst
-dev-libs/libpqxx
 dev-util/monodevelop
 net-libs/nodejs[npm]
 sys-apps/fakeroot"
-S="${WORKDIR}/unity-enditor-${PV_F}"
-FILES="${S}/Files"
+S="${WORKDIR}/unity-editor-${PV}xb5Linux"
+FILE="/opt/${P}"
 
 
 src_unpack() {
 	yes | fakeroot sh "${DISTDIR}/${P}+${BUILDTAG}.sh" > /dev/null || die "Failed unpacking archive!"
 }
 
-src_prepare() {
-	ln -s /usr/bin/python2 ${S}/Editor/python # Fix WebGL building
-	mkdir -p ${FILES}
-	cp -R ${FILESDIR}/* ${FILES}/
-	sed -i "/^Version=/c\Version=${PV}" "${FILES}/unity-editor.desktop"
-	sed -i "/^Version=/c\Version=${PV}" "${FILES}/unity-monodevelop.desktop"
-	eapply_user # In case someone wants to patch .desktop files, for example
-}
 src_install() {
-	# Install Unity3D itself
-	insinto /opt/Unity
+
+	insinto ${FILE}
 	doins -r ${S}/*
 
-	# Install .desktop launchers
-	insopts "-Dm644"
-	insinto /usr/share/applications
-	doins "${FILES}/unity-editor.desktop"
-	doins "${FILES}/unity-monodevelop.desktop"
+	insopts "-Dm775"
 
-	# Install icons
-	insinto /usr/share/icons/hicolor/256x256/apps
-	doins "${S}/unity-editor-icon.png"
-	insinto /usr/share/icons/hicolor/48x48/apps
-	doins "${FILES}/unity-monodevelop.png"
+	fperms 755 "${FILE}/Editor/Unity"
+	fperms 755 "${FILE}/Editor/UnityHelper"
+	fperms 755 "${FILE}/MonoDevelop/bin/monodevelop"
 
-	# Install launch binaries
-	insopts "-Dm755"
-	insinto /usr/bin
-	doins "${FILES}/unity-editor"
-	doins "${FILES}/monodevelop-unity"
-
-	# Install EULA license
-	insopts "-Dm644"
-	insinto /usr/share/licenses/${PN}
-	doins "${FILES}/EULA"
-
-	fperms +x opt/Unity/Editor/Unity ${D}/opt/Unity/Editor/UnityHelper
-	fperms 4755 opt/Unity/Editor/chrome-sandbox
+	dosym ${FILE}/Editor/Unity /usr/bin/Unity
 }
 
 
 pkg_postinst() {
-	einfo "If has some error please"
-	einfo "issue to VZIKL'github"
+	chmod 4755 "${FILE}/Editor/chrome-sandbox" || die
 }
