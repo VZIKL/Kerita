@@ -29,6 +29,7 @@ src_install(){
 	doins -r *
 
 	fperms 775 /opt/${PN}/Popcorn-Time
+	fperms 775 /opt/${PN}/nacl_helper
 	dosym /opt/${PN}/Popcorn-Time /usr/bin/popcorn-time
 	dosym /$(get_libdir)/libudev.so.1 /opt/${PN}/libudev.so.0
 }
