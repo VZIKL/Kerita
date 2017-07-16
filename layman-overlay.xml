@@ -2,7 +2,7 @@
 
 <repositories version="1.0">
     <repo quality="experimental" status="unofficial">
-        <name>kerita-overlay</name>
+        <name>kerita</name>
         <description>overlay</description>
         <homepage>https://github.com/VZIKL/Kerita</homepage>
         <owner>
