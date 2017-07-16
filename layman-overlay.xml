@@ -2,10 +2,11 @@
 
 <repositories version="1.0">
     <repo quality="experimental" status="unofficial">
-        <name>kerita</name>
+        <name>kerita-overlay</name>
         <description>overlay</description>
         <homepage>https://github.com/VZIKL/Kerita</homepage>
         <owner>
+            <name>VZIKL</name>
             <email>cvzikl@gmail.com</email>
         </owner>
         <source type="git">https://github.com/VZIKL/Kerita.git</source>
