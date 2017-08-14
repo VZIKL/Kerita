@@ -27,4 +27,6 @@ src_install(){
 
 	dodir /usr/bin
 	exeinto /usr/bin
+	fperms 775 /usr/bin/OM_6.12
+	fperms 775 /usr/bin/openmusic
 }
