@@ -10,12 +10,12 @@ MY_P=${PN}-${MY_PV}
 DESCRIPTION="Festival Text to Speech engine"
 HOMEPAGE="http://www.cstr.ed.ac.uk/projects/festival/"
 SITE="http://www.festvox.org/packed/${PN}/${PV}"
+# ${SITE}/voices/festvox_cmu_us_ahw_cg.tar.gz
 SRC_URI="${SITE}/${MY_P}.tar.gz
 	${SITE}/festlex_CMU.tar.gz
 	${SITE}/festlex_OALD.tar.gz
 	${SITE}/festlex_POSLEX.tar.gz
 	${SITE}/speech_tools-${MY_PV}.tar.gz
-	${SITE}/voices/festvox_cmu_us_ahw_cg.tar.gz
 	${SITE}/voices/festvox_cmu_us_aup_cg.tar.gz
 	${SITE}/voices/festvox_cmu_us_awb_cg.tar.gz
 	${SITE}/voices/festvox_cmu_us_axb_cg.tar.gz
@@ -35,7 +35,7 @@ SLOT="0"
 KEYWORDS="alpha amd64 ~arm hppa ia64 ~mips ppc ppc64 sparc x86 ~x86-fbsd"
 IUSE=""
 
-DEPEND="~app-accessibility/speech-tools-2.1
+DEPEND="~app-accessibility/speech-tools-2.4
 		>=sys-libs/ncurses-5.6-r2"
 RDEPEND="${DEPEND}
 	media-sound/alsa-utils
@@ -65,7 +65,7 @@ src_prepare() {
 	# copy what we need for MultiSyn from speech_tools.
 	cp -pr "${WORKDIR}"/speech_tools/base_class "${S}"/src/modules/MultiSyn
 
-	epatch "${FILESDIR}/${P}-gcc4.7.patch"
+	# epatch "${FILESDIR}/${P}-gcc4.7.patch"
 
 	echo "(Parameter.set 'Audio_Command \"aplay -q -c 1 -t raw -f s16 -r \$SR \$FILE\")" >> "${S}"/lib/siteinit.scm
 	echo "(Parameter.set 'Audio_Method 'Audio_Command)" >> "${S}"/lib/siteinit.scm
