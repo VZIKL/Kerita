@@ -1,13 +1,13 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI="6"
+EAPI="5"
 
-inherit eutils flag-o-matic multilib toolchain-funcs git-r3
+inherit eutils flag-o-matic multilib toolchain-funcs
 
 DESCRIPTION="Speech tools for Festival Text to Speech engine"
 HOMEPAGE="http://www.cstr.ed.ac.uk/projects/speech_tools/"
-EGIT_REPO_URI="https://github.com/festvox/speech_tools.git"
+SRC_URI="https://github.com/VZIKL/speech_tools/archive/v2.5.tar.gz -> ${PN}-${PV}.tar.gz"
 
 
 LICENSE="FESTIVAL HPND BSD rc regexp-UofT"
@@ -27,6 +27,8 @@ RDEPEND="
 DEPEND="${RDEPEND}
 	virtual/pkgconfig
 "
+
+S=${WORKDIR}/speech_tools-2.5
 
 src_configure() {
 	local CONFIG=config/config.in
