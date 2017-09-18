@@ -44,11 +44,12 @@ src_configure() {
 # if compile error change MAKEOPTS to MAKEOPTS=""
 
 src_compile() {
-  emake SHARED=1
+  emake SHARED=2
 }
 
 src_install() {
 	dolib.so lib/libest*.so*
+	dolib.a lib/libest*.a*
 
 	dodoc lib/cstrutt.dtd
 
