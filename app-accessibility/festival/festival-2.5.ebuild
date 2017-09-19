@@ -74,6 +74,7 @@ src_compile() {
 		OPTIMISE_CXXFLAGS="${CXXFLAGS}" OPTIMISE_CCFLAGS="${CFLAGS}" \
 		LDFLAGS="${LDFLAGS}" \
 		CC="$(tc-getCC)" CXX="$(tc-getCXX)" SHARED=2 || die "emake failed"
+	sed -i -e '2c "true" ; exec /usr/bin/festival --script $0 $*' bin/text2wave
 }
 
 src_install() {
