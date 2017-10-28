@@ -1,7 +1,7 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=5
 
 inherit eutils scons-utils
 
@@ -11,10 +11,10 @@ SRC_URI="https://github.com/godotengine/${PN}/archive/${PV}-stable.tar.gz -> ${P
 
 LICENSE="MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE="+freetype llvm pulseaudio openssl"
 
-DEPEND="
+RDEPEND="
 	dev-util/scons
 	x11-libs/libX11
 	x11-libs/libXcursor
@@ -27,20 +27,21 @@ DEPEND="
 	llvm? ( sys-devel/llvm )
 	openssl? ( dev-libs/openssl )
 "
-RDEPEND="${DEPEND}"
+
+S="${WORKDIR}/${PN}-${PV}-stable"
 
 src_configure(){
 	MYSCONS=(
 		platform=x11
-		pulseaudio=${use pulseaudio}
-		use_llvm=${use llvm}
-		openssl=${use openssl}
-		freetype=${use freetype}
+		pulseaudio=$(usex pulseaudio)
+		use_llvm=$(usex llvm)
+		openssl=$(usex openssl)
+		freetype=$(usex freetype)
 	)
 }
 
 src_compile(){
-	escons ${MYSCONS}
+	escons "${MYSCONS[@]}"
 }
 
 src_install(){
