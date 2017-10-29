@@ -46,5 +46,5 @@ src_compile(){
 
 src_install(){
 	newicon icon.svg ${PN}.svg
-	dobin bin/gdot.*
+	dobin bin/godot.*
 }
