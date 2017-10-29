@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-inherit cmake-utils git-r3
+inherit cmake-utils git-r3 gnome2-utils
 
 DESCRIPTION="Parametric 2d/3d CAD"
 HOMEPAGE="http://solvespace.com/"
