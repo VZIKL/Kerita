@@ -30,7 +30,7 @@ RDEPEND="${DEPEND}
 	dev-python/pillow[${PYTHON_USEDEP}]
 	dev-python/pycairo[${PYTHON_USEDEP}]
 	dev-python/beautifulsoup:4[${PYTHON_USEDEP}]
-	net-libs/webkit-gtk:3[introspection]
+	net-libs/webkit-gtk:4[introspection]
 	gnome-extra/yelp
 	media-gfx/imagemagick
 	media-libs/gexiv2[python,introspection]
