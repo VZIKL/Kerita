@@ -5,7 +5,7 @@ EAPI=6
 
 DESCRIPTION="Streaming torrent app"
 HOMEPAGE="https://webtorrent.io/desktop"
-SRC_URI="https://github.com/webtorrent/webtorrent-desktop/releases/download/v0.19.0/WebTorrent-v0.19.0-linux.zip"
+SRC_URI="https://github.com/webtorrent/webtorrent-desktop/releases/download/v${PV}/WebTorrent-v${PV}-linux.zip"
 
 LICENSE="MPL-2.0"
 SLOT="0"
