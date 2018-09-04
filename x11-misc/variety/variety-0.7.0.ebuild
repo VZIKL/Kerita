@@ -3,14 +3,14 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_{6,7} )
+PYTHON_COMPAT=( python3_6 )
 DISTUTILS_SINGLE_IMPL="1"
 
 inherit distutils-r1 gnome2-utils
 
 DESCRIPTION="Wallpaper changer for Linux"
 HOMEPAGE="http://peterlevi.com/variety/"
-SRC_URI="https://github.com/varietywalls/${PN}/archive/0.6.8.tar.gz ->  ${PN}_${PV}.tar.gz"
+SRC_URI="https://github.com/varietywalls/${PN}/archive/${PV}-beta1.tar.gz ->  ${PN}_${PV}.tar.gz"
 
 LICENSE=""
 SLOT="0"
@@ -35,9 +35,10 @@ RDEPEND="${DEPEND}
 	media-gfx/imagemagick
 	media-libs/gexiv2[python,introspection]
 	dev-libs/libappindicator:3[introspection]
-	dev-python/lxml[${PYTHON_USEDEP}]"
+	dev-python/lxml[${PYTHON_USEDEP}]
+	>=dev-lang/python-3.5"
 
-S="${WORKDIR}/${PN}-${PV}"
+S="${WORKDIR}/${PN}-${PV}-beta1"
 
 pkg_postinst(){
 	gnome2_icon_cache_update
