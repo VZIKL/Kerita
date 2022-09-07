@@ -23,8 +23,8 @@ src_install(){
     dodir /opt
     exeinto /opt
     fperms 775 /opt/Cider/cider 
+    fperms 775 /opt/Cider/chrome_crashpad_handler
     dosym /opt/Cider/cider /usr/bin/cider
-
     doins -r ${S}/usr
 
     dodir /usr/share
