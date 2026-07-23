@@ -3,6 +3,8 @@
 
 EAPI=8
 
+inherit unpacker
+
 DESCRIPTION="A simple markdown editor written in Tauri, inspired by Obsidian"
 HOMEPAGE="https://github.com/lockedmutex/rhyolite"
 SRC_URI="https://github.com/lockedmutex/rhyolite/releases/download/v${PV}/Rhyolite_${PV}_amd64.deb"
@@ -20,8 +22,7 @@ RDEPEND="
 S="${WORKDIR}"
 
 src_unpack() {
-	default
-	# default unpacks .deb to ${WORKDIR} (EAPI 8 supports .deb natively)
+	unpack_deb "${A}"
 }
 
 src_install() {
