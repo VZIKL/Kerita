@@ -1,8 +1,8 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
-inherit cmake-utils git-r3 gnome2-utils
+EAPI=8
+inherit cmake git-r3 gnome2-utils
 
 DESCRIPTION="Parametric 2d/3d CAD"
 HOMEPAGE="http://solvespace.com/"
@@ -32,7 +32,7 @@ src_configure(){
 	local mycmakeargs=(
 	-DCMAKE_BUILD_TYPE=Release
 )
-cmake-utils_src_configure
+cmake_src_configure
 }
 
 pkg_postinst(){

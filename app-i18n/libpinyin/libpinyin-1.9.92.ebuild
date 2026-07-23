@@ -1,8 +1,8 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=5
-inherit autotools eutils
+EAPI=8
+inherit autotools
 
 MODELV=14
 
@@ -25,7 +25,7 @@ DEPEND="${RDEPEND}
 src_prepare() {
 	ln -s "${DISTDIR}"/model${MODELV}.text.tar.gz data || die
 	sed -e '/wget/d' -i data/Makefile.am || die
-	epatch_user
+	eapply_user
 	eautoreconf
 }
 

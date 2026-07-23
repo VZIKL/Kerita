@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit unpacker
+inherit desktop unpacker
 
 DESCRIPTION="A simple markdown editor written in Tauri, inspired by Obsidian"
 HOMEPAGE="https://github.com/lockedmutex/rhyolite"
