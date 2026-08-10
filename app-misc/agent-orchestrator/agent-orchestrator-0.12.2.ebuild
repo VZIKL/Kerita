@@ -19,7 +19,6 @@ RESTRICT="strip binchecks mirror"
 RDEPEND="
 	app-accessibility/at-spi2-core:2
 	dev-libs/glib:2
-	dev-libs/libnotify
 	dev-libs/nss
 	media-libs/alsa-lib
 	media-libs/mesa
@@ -31,6 +30,7 @@ RDEPEND="
 	x11-libs/libXfixes
 	x11-libs/libXrandr
 	x11-libs/libxcb
+	x11-libs/libnotify
 	x11-misc/xdg-utils
 "
 
