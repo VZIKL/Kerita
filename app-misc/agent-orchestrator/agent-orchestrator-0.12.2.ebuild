@@ -50,6 +50,7 @@ src_install() {
 
 	dosym -r /usr/lib/agent-orchestrator/agent-orchestrator \
 		/usr/bin/agent-orchestrator
+	dosym -r /usr/lib/agent-orchestrator/resources/daemon/ao /usr/bin/ao
 	domenu usr/share/applications/agent-orchestrator.desktop
 	newicon -s 1024 usr/share/pixmaps/agent-orchestrator.png \
 		agent-orchestrator.png
