@@ -63,6 +63,9 @@ src_install() {
 
 	dosym -r /opt/Orca/resources/bin/orca-ide /usr/bin/orca-ide
 
+	sed -i \
+		'/^MimeType=/ s#x-scheme-handler/orca;x-scheme-handler/orca;#x-scheme-handler/orca;#' \
+		usr/share/applications/orca-ide.desktop || die
 	domenu usr/share/applications/orca-ide.desktop
 
 	local size
