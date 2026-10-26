@@ -3,7 +3,9 @@
 
 EAPI=8
 
-inherit desktop unpacker xdg
+PYTHON_COMPAT=( python3_{11..15} )
+
+inherit desktop python-r1 unpacker xdg
 
 DESCRIPTION="Next-gen IDE for parallel agentic development"
 HOMEPAGE="https://github.com/stablyai/orca"
@@ -14,21 +16,24 @@ S="${WORKDIR}"
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
+REQUIRED_USE="elibc_glibc ${PYTHON_REQUIRED_USE}"
 RESTRICT="strip binchecks mirror"
 
 RDEPEND="
+	${PYTHON_DEPS}
 	>=app-accessibility/at-spi2-core-2.46.0:2[introspection]
-	dev-lang/python
+	app-crypt/libsecret
 	dev-libs/expat
 	dev-libs/glib:2
-	dev-libs/libappindicator:3
+	dev-libs/libayatana-appindicator
 	dev-libs/nspr
 	dev-libs/nss
-	dev-python/pygobject:3
+	dev-python/pygobject:3[${PYTHON_USEDEP}]
 	media-libs/alsa-lib
-	media-libs/mesa
+	media-libs/mesa[gbm(+)]
 	net-print/cups
 	sys-apps/dbus
+	sys-apps/util-linux
 	sys-libs/glibc
 	virtual/udev
 	x11-base/xorg-server[xvfb]
@@ -41,10 +46,14 @@ RDEPEND="
 	x11-libs/libXext
 	x11-libs/libXfixes
 	x11-libs/libxkbcommon
+	x11-libs/libnotify
 	x11-libs/libXrandr
+	x11-libs/libXScrnSaver
+	x11-libs/libXtst
 	x11-libs/pango
 	x11-misc/xclip
 	x11-misc/xdotool
+	x11-misc/xdg-utils
 "
 
 QA_PREBUILT="*"
